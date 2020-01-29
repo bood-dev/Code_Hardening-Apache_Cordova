@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="io.cordova.hellocordova" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="SSLCertificateChecker">
+        <param name="android-package" value="nl.xservices.plugins.SSLCertificateChecker" />
+    </feature>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="IRoot">
+        <param name="android-package" value="de.cyberkatze.iroot.IRoot" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="IsDebug">
+        <param name="android-package" value="me.mattlewis.isdebug.IsDebug" />
+    </feature>
+    <feature name="AntiTamperingPlugin">
+        <param name="android-package" value="com.duddu.antitampering.AntiTamperingPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <name>MSTG</name>
+    <description>
+        A sample Apache Cordova app with security controls based on OWASP-MSTG.
+    </description>
+    <author email="bood.dev@gmail.com" href="https://bood-dev.github.io/">
+        bood
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <allow-intent href="market:*" />
+    <preference name="loglevel" value="DEBUG" />
+</widget>
