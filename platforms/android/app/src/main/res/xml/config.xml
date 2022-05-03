@@ -1,33 +1,22 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.cordova.hellocordova" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <feature name="Whitelist">
-        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
-        <param name="onload" value="true" />
-    </feature>
+<widget id="io.codehardening.apachecordova" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <feature name="SSLCertificateChecker">
         <param name="android-package" value="nl.xservices.plugins.SSLCertificateChecker" />
-    </feature>
-    <feature name="Device">
-        <param name="android-package" value="org.apache.cordova.device.Device" />
-    </feature>
-    <feature name="IRoot">
-        <param name="android-package" value="de.cyberkatze.iroot.IRoot" />
-        <param name="onload" value="true" />
     </feature>
     <feature name="IsDebug">
         <param name="android-package" value="me.mattlewis.isdebug.IsDebug" />
     </feature>
-    <feature name="AntiTamperingPlugin">
-        <param name="android-package" value="com.duddu.antitampering.AntiTamperingPlugin" />
-        <param name="onload" value="true" />
+    <feature name="checkDebugger">
+        <param name="android-package" value="com.neutrinos.checkdebuggerplugin.checkDebugger" />
     </feature>
-    <name>MSTG</name>
+    <name>Hardened App</name>
     <description>
         A sample Apache Cordova app with security controls based on OWASP-MSTG.
     </description>
     <author email="bood.dev@gmail.com" href="https://bood-dev.github.io/">
         bood
     </author>
+    <icon density="mdpi" height="57" platform="ios" src="www/img/icon.png" width="57" />
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />

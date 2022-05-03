@@ -28,11 +28,12 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
-        this.certificatePinning('certificatePinning');
-        this.runningOnEmulator('runningOnEmulator');
-        this.deviceRooted('deviceRooted');
         this.isDebug('isDebug');
-        this.integrityCheck('integrityCheck');
+        this.checkDebugger('checkDebugger');
+        // this.certificatePinning('certificatePinning');
+        // this.runningOnEmulator('runningOnEmulator');
+        // this.deviceRooted('deviceRooted');
+        // this.integrityCheck('integrityCheck');
     },
 
     // Update DOM on a Received Event
@@ -45,6 +46,64 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
         
         console.log('Received Event: ' + id);
+    },
+
+    /**
+     * [MSTG-RESILIENCE-2]
+     * Testing anti-debugging detection
+     * 
+     * Plugin: cordova-plugin-is-debug
+     * @param {*} id
+     */
+    isDebug: function(id) {
+        var parentElement = document.getElementById(id);
+        var listeningElement = parentElement.querySelector('.listening');
+        var receivedElement = parentElement.querySelector('.received');
+        var failedElement = parentElement.querySelector('.failed');
+
+        cordova.plugins.IsDebug.getIsDebug(function(isDebug) {
+            listeningElement.setAttribute('style', 'display: none;');
+
+            if (isDebug == true) {
+                failedElement.setAttribute('style', 'display: block;');
+                failedElement.innerHTML = isDebug;   
+            } else {
+                receivedElement.setAttribute('style', 'display: block;');
+                receivedElement.innerHTML = isDebug;
+            }
+        }, function (err) {
+            listeningElement.setAttribute('style', 'display: none;');
+            failedElement.setAttribute('style', 'display: block;');
+
+            failedElement.innerHTML = err;
+        });
+    },
+    /**
+     * Plugin: cordova-plugin-check-debugger
+     * @param {*} id 
+     */
+    checkDebugger: function (id) {
+        var parentElement = document.getElementById(id);
+        var listeningElement = parentElement.querySelector('.listening');
+        var receivedElement = parentElement.querySelector('.received');
+        var failedElement = parentElement.querySelector('.failed');
+
+        checkDebugger.isAttached(function(isDebug) {
+            listeningElement.setAttribute('style', 'display: none;');
+
+            if (isDebug == true) {
+                failedElement.setAttribute('style', 'display: block;');
+                failedElement.innerHTML = isDebug;
+            } else {
+                receivedElement.setAttribute('style', 'display: block;');
+                receivedElement.innerHTML = isDebug;
+            }
+        }, function (err) {
+            listeningElement.setAttribute('style', 'display: none;');
+            failedElement.setAttribute('style', 'display: block;');
+
+            failedElement.innerHTML = err;
+        });        
     },
 
     // [ MSTG-NETWORK-4 ]
@@ -138,32 +197,6 @@ var app = {
         }
     },
 
-    // [ MSTG-RESILIENCE-2 ]
-    // Testing anti-debugging detection
-    isDebug: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-        var failedElement = parentElement.querySelector('.failed');
-
-        cordova.plugins.IsDebug.getIsDebug(function(isDebug) {
-            listeningElement.setAttribute('style', 'display: none;');
-
-            if (isDebug == true) {
-                failedElement.setAttribute('style', 'display: block;');
-                failedElement.innerHTML = isDebug;   
-            } else {
-                receivedElement.setAttribute('style', 'display: block;');
-                receivedElement.innerHTML = isDebug;   
-            }
-        }, function (err) {
-            listeningElement.setAttribute('style', 'display: none;');
-            failedElement.setAttribute('style', 'display: block;');
-
-            failedElement.innerHTML = err;
-        });
-    },
-
     // [ MSTG-RESILIENCE-6 ] 
     // Testing run time integrity checks
     integrityCheck: function(id) {
@@ -182,7 +215,7 @@ var app = {
                 // gives you the file on which tampering was detected
             }
         );
-    }
+    },
 };
 
 app.initialize();

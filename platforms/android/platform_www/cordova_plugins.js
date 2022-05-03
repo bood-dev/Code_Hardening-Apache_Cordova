@@ -1,30 +1,6 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
   module.exports = [
     {
-      "id": "cordova-plugin-sslcertificatechecker.SSLCertificateChecker",
-      "file": "plugins/cordova-plugin-sslcertificatechecker/www/SSLCertificateChecker.js",
-      "pluginId": "cordova-plugin-sslcertificatechecker",
-      "clobbers": [
-        "window.plugins.sslCertificateChecker"
-      ]
-    },
-    {
-      "id": "cordova-plugin-device.device",
-      "file": "plugins/cordova-plugin-device/www/device.js",
-      "pluginId": "cordova-plugin-device",
-      "clobbers": [
-        "device"
-      ]
-    },
-    {
-      "id": "cordova-plugin-iroot.IRoot",
-      "file": "plugins/cordova-plugin-iroot/www/iroot.js",
-      "pluginId": "cordova-plugin-iroot",
-      "clobbers": [
-        "IRoot"
-      ]
-    },
-    {
       "id": "cordova-plugin-is-debug.IsDebug",
       "file": "plugins/cordova-plugin-is-debug/www/isDebug.js",
       "pluginId": "cordova-plugin-is-debug",
@@ -33,20 +9,16 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
-      "id": "cordova-plugin-antitampering.AntiTampering",
-      "file": "plugins/cordova-plugin-antitampering/www/AntiTampering.js",
-      "pluginId": "cordova-plugin-antitampering",
+      "id": "cordova-plugin-check-debugger.checkDebugger",
+      "file": "plugins/cordova-plugin-check-debugger/www/checkDebugger.js",
+      "pluginId": "cordova-plugin-check-debugger",
       "clobbers": [
-        "cordova.plugins.AntiTampering"
+        "checkDebugger"
       ]
     }
   ];
   module.exports.metadata = {
-    "cordova-plugin-whitelist": "1.3.4",
-    "cordova-plugin-sslcertificatechecker": "6.0.0",
-    "cordova-plugin-device": "2.0.3",
-    "cordova-plugin-iroot": "0.8.1",
     "cordova-plugin-is-debug": "1.0.0",
-    "cordova-plugin-antitampering": "0.3.0"
+    "cordova-plugin-check-debugger": "1.0.0"
   };
 });

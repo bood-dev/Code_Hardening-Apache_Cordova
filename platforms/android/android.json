@@ -9,19 +9,7 @@
         "parents": {
           "/*": [
             {
-              "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
-              "count": 1
-            },
-            {
               "xml": "<feature name=\"SSLCertificateChecker\"><param name=\"android-package\" value=\"nl.xservices.plugins.SSLCertificateChecker\" /></feature>",
-              "count": 1
-            },
-            {
-              "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
-              "count": 1
-            },
-            {
-              "xml": "<feature name=\"IRoot\"><param name=\"android-package\" value=\"de.cyberkatze.iroot.IRoot\" /><param name=\"onload\" value=\"true\" /></feature>",
               "count": 1
             },
             {
@@ -29,7 +17,7 @@
               "count": 1
             },
             {
-              "xml": "<feature name=\"AntiTamperingPlugin\"><param name=\"android-package\" value=\"com.duddu.antitampering.AntiTamperingPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "xml": "<feature name=\"checkDebugger\"><param name=\"android-package\" value=\"com.neutrinos.checkdebuggerplugin.checkDebugger\" /></feature>",
               "count": 1
             }
           ]
@@ -48,55 +36,15 @@
     }
   },
   "installed_plugins": {
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "io.cordova.hellocordova"
-    },
-    "cordova-plugin-sslcertificatechecker": {
-      "PACKAGE_NAME": "io.cordova.hellocordova"
-    },
-    "cordova-plugin-device": {
-      "PACKAGE_NAME": "io.cordova.hellocordova"
-    },
-    "cordova-plugin-iroot": {
-      "ENABLE_BUSYBOX_CHECK": "true",
-      "PACKAGE_NAME": "io.cordova.hellocordova"
-    },
     "cordova-plugin-is-debug": {
       "PACKAGE_NAME": "io.cordova.hellocordova"
     },
-    "cordova-plugin-antitampering": {
-      "EXCLUDE_ASSETS_EXTENSIONS": " ",
-      "ENABLE_CORDOVA_CALLBACK": "false",
-      "ENABLE_DEBUG_DETECTION": "true",
+    "cordova-plugin-check-debugger": {
       "PACKAGE_NAME": "io.cordova.hellocordova"
     }
   },
   "dependent_plugins": {},
   "modules": [
-    {
-      "id": "cordova-plugin-sslcertificatechecker.SSLCertificateChecker",
-      "file": "plugins/cordova-plugin-sslcertificatechecker/www/SSLCertificateChecker.js",
-      "pluginId": "cordova-plugin-sslcertificatechecker",
-      "clobbers": [
-        "window.plugins.sslCertificateChecker"
-      ]
-    },
-    {
-      "id": "cordova-plugin-device.device",
-      "file": "plugins/cordova-plugin-device/www/device.js",
-      "pluginId": "cordova-plugin-device",
-      "clobbers": [
-        "device"
-      ]
-    },
-    {
-      "id": "cordova-plugin-iroot.IRoot",
-      "file": "plugins/cordova-plugin-iroot/www/iroot.js",
-      "pluginId": "cordova-plugin-iroot",
-      "clobbers": [
-        "IRoot"
-      ]
-    },
     {
       "id": "cordova-plugin-is-debug.IsDebug",
       "file": "plugins/cordova-plugin-is-debug/www/isDebug.js",
@@ -106,20 +54,16 @@
       ]
     },
     {
-      "id": "cordova-plugin-antitampering.AntiTampering",
-      "file": "plugins/cordova-plugin-antitampering/www/AntiTampering.js",
-      "pluginId": "cordova-plugin-antitampering",
+      "id": "cordova-plugin-check-debugger.checkDebugger",
+      "file": "plugins/cordova-plugin-check-debugger/www/checkDebugger.js",
+      "pluginId": "cordova-plugin-check-debugger",
       "clobbers": [
-        "cordova.plugins.AntiTampering"
+        "checkDebugger"
       ]
     }
   ],
   "plugin_metadata": {
-    "cordova-plugin-whitelist": "1.3.4",
-    "cordova-plugin-sslcertificatechecker": "6.0.0",
-    "cordova-plugin-device": "2.0.3",
-    "cordova-plugin-iroot": "0.8.1",
     "cordova-plugin-is-debug": "1.0.0",
-    "cordova-plugin-antitampering": "0.3.0"
+    "cordova-plugin-check-debugger": "1.0.0"
   }
 }

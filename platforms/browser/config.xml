@@ -1,12 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.cordova.hellocordova" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MSTG</name>
+<widget id="io.codehardening.apachecordova" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Hardened App</name>
     <description>
         A sample Apache Cordova app with security controls based on OWASP-MSTG.
     </description>
     <author email="bood.dev@gmail.com" href="https://bood-dev.github.io/">
         bood
     </author>
+    <icon density="mdpi" height="57" platform="ios" src="www/img/icon.png" width="57" />
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
