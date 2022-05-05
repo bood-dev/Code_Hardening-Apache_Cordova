@@ -28,11 +28,11 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
+        this.isDeviceRooted('isDeviceRooted');
         this.isDebug('isDebug');
-        this.checkDebugger('checkDebugger');
+        this.checkDebugger('checkDebugger');        
         // this.certificatePinning('certificatePinning');
         // this.runningOnEmulator('runningOnEmulator');
-        // this.deviceRooted('deviceRooted');
         // this.integrityCheck('integrityCheck');
     },
 
@@ -46,6 +46,39 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
         
         console.log('Received Event: ' + id);
+    },
+    /**
+     * [ MSTG-RESILIENCE-1 ]
+     * Testing root detection
+     * 
+     * cordova-plugin-root-detection
+     */
+    isDeviceRooted: function(id) {
+        var parentElement = document.getElementById(id);
+        var listeningElement = parentElement.querySelector('.listening');
+        var receivedElement = parentElement.querySelector('.received');
+        var failedElement = parentElement.querySelector('.failed');
+
+        rootdetection.isDeviceRooted(successCallback, errorCallback);
+
+        function successCallback(result) {
+            listeningElement.setAttribute('style', 'display: none;');
+
+            if (result == 1) {
+                failedElement.setAttribute('style', 'display: block;');
+                failedElement.innerHTML = "TRUE";
+            } else {
+                receivedElement.setAttribute('style', 'display: block;');
+                receivedElement.innerHTML = "FALSE";
+            }
+        }
+
+        function errorCallback(result) {
+            listeningElement.setAttribute('style', 'display: none;');
+            failedElement.setAttribute('style', 'display: block;');
+
+            failedElement.innerHTML = result;
+        }
     },
 
     /**
@@ -64,7 +97,7 @@ var app = {
         cordova.plugins.IsDebug.getIsDebug(function(isDebug) {
             listeningElement.setAttribute('style', 'display: none;');
 
-            if (isDebug == true) {
+            if (isDebug) {
                 failedElement.setAttribute('style', 'display: block;');
                 failedElement.innerHTML = isDebug;   
             } else {
@@ -78,6 +111,7 @@ var app = {
             failedElement.innerHTML = err;
         });
     },
+
     /**
      * Plugin: cordova-plugin-check-debugger
      * @param {*} id 
@@ -91,7 +125,7 @@ var app = {
         checkDebugger.isAttached(function(isDebug) {
             listeningElement.setAttribute('style', 'display: none;');
 
-            if (isDebug == true) {
+            if (isDebug) {
                 failedElement.setAttribute('style', 'display: block;');
                 failedElement.innerHTML = isDebug;
             } else {
@@ -164,36 +198,6 @@ var app = {
             receivedElement.setAttribute('style', 'display:block;');
 
             receivedElement.innerHTML = device.isVirtual;
-        }
-    },
-
-    // [ MSTG-RESILIENCE-1 ]
-    // Testing Root Detection
-    deviceRooted: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-        var failedElement = parentElement.querySelector('.failed');
-
-        IRoot.isRooted(successCallback, failureCallback);
-
-        function successCallback(result) {
-            listeningElement.setAttribute('style', 'display: none;');
-
-            if (result == true) {
-                failedElement.setAttribute('style', 'display: block;');
-                failedElement.innerHTML = "TRUE";
-            } else {
-                receivedElement.setAttribute('style', 'display: block;');
-                receivedElement.innerHTML = "FALSE";
-            }
-        }
-
-        function failureCallback(result) {
-            listeningElement.setAttribute('style', 'display: none;');
-            failedElement.setAttribute('style', 'display: block;');
-
-            failedElement.innerHTML = result;
         }
     },
 

@@ -19,6 +19,10 @@
             {
               "xml": "<feature name=\"checkDebugger\"><param name=\"android-package\" value=\"com.neutrinos.checkdebuggerplugin.checkDebugger\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"RootDetection\"><param name=\"android-package\" value=\"ru.trykov.root.RootDetection\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -41,6 +45,9 @@
     },
     "cordova-plugin-check-debugger": {
       "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-root-detection": {
+      "PACKAGE_NAME": "io.codehardening.apachecordova"
     }
   },
   "dependent_plugins": {},
@@ -60,10 +67,19 @@
       "clobbers": [
         "checkDebugger"
       ]
+    },
+    {
+      "id": "cordova-plugin-root-detection.RootDetection",
+      "file": "plugins/cordova-plugin-root-detection/www/rootdetection.js",
+      "pluginId": "cordova-plugin-root-detection",
+      "clobbers": [
+        "rootdetection"
+      ]
     }
   ],
   "plugin_metadata": {
     "cordova-plugin-is-debug": "1.0.0",
-    "cordova-plugin-check-debugger": "1.0.0"
+    "cordova-plugin-check-debugger": "1.0.0",
+    "cordova-plugin-root-detection": "0.1.1"
   }
 }

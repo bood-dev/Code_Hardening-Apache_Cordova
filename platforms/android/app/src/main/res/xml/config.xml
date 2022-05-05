@@ -9,6 +9,10 @@
     <feature name="checkDebugger">
         <param name="android-package" value="com.neutrinos.checkdebuggerplugin.checkDebugger" />
     </feature>
+    <feature name="RootDetection">
+        <param name="android-package" value="ru.trykov.root.RootDetection" />
+        <param name="onload" value="true" />
+    </feature>
     <name>Hardened App</name>
     <description>
         A sample Apache Cordova app with security controls based on OWASP-MSTG.

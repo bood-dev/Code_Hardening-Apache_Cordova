@@ -18,12 +18,14 @@
     "cordova-browser": "^6.0.0"
   },
   "devDependencies": {
-    "cordova-plugin-check-debugger": "^1.0.0"
+    "cordova-plugin-check-debugger": "^1.0.0",
+    "cordova-plugin-root-detection": "^0.1.1"
   },
   "cordova": {
     "plugins": {
       "cordova-plugin-is-debug": {},
-      "cordova-plugin-check-debugger": {}
+      "cordova-plugin-check-debugger": {},
+      "cordova-plugin-root-detection": {}
     },
     "platforms": [
       "browser",

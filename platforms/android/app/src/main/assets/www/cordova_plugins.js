@@ -15,10 +15,19 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "checkDebugger"
       ]
+    },
+    {
+      "id": "cordova-plugin-root-detection.RootDetection",
+      "file": "plugins/cordova-plugin-root-detection/www/rootdetection.js",
+      "pluginId": "cordova-plugin-root-detection",
+      "clobbers": [
+        "rootdetection"
+      ]
     }
   ];
   module.exports.metadata = {
     "cordova-plugin-is-debug": "1.0.0",
-    "cordova-plugin-check-debugger": "1.0.0"
+    "cordova-plugin-check-debugger": "1.0.0",
+    "cordova-plugin-root-detection": "0.1.1"
   };
 });

@@ -18,6 +18,9 @@
     },
     "cordova-plugin-check-debugger": {
       "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-root-detection": {
+      "PACKAGE_NAME": "io.codehardening.apachecordova"
     }
   },
   "dependent_plugins": {},
@@ -37,10 +40,19 @@
       "clobbers": [
         "checkDebugger"
       ]
+    },
+    {
+      "file": "plugins/cordova-plugin-root-detection/www/rootdetection.js",
+      "id": "cordova-plugin-root-detection.RootDetection",
+      "pluginId": "cordova-plugin-root-detection",
+      "clobbers": [
+        "rootdetection"
+      ]
     }
   ],
   "plugin_metadata": {
     "cordova-plugin-is-debug": "1.0.0",
-    "cordova-plugin-check-debugger": "1.0.0"
+    "cordova-plugin-check-debugger": "1.0.0",
+    "cordova-plugin-root-detection": "0.1.1"
   }
 }
